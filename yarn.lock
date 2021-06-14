@@ -12,15 +12,15 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-11.11.6.tgz#df929d1bb2eee5afdda598a41930fe50b43eaa6a"
   integrity sha512-Exw4yUWMBXM3X+8oqzJNRqZSwUAaS4+7NdvHqQuFi/d+synz++xmX3QIf+BFqneW8N31R8Ky+sikfZUXq07ggQ==
 
-"@xchainjs/xchain-client@^0.8.0":
-  version "0.8.0"
-  resolved "https://registry.yarnpkg.com/@xchainjs/xchain-client/-/xchain-client-0.8.0.tgz#606e83abdccc6a80fa969901782128b0c8d83ec0"
-  integrity sha512-cUPbfXXyhGusXWhcdmP8w/kYtsKJ2kvRemQIxBlcEuXyCNBCLJmkWJQTF4w6pfh3V19wZfOGuxwNcr1l4F8oNw==
+"@xchainjs/xchain-client@^0.9.3":
+  version "0.9.3"
+  resolved "https://registry.yarnpkg.com/@xchainjs/xchain-client/-/xchain-client-0.9.3.tgz#bb9c55c940c46b11036cb4167ca1f2b3d4d93d15"
+  integrity sha512-7WDiRezifjdaF/EcHSPLYe9iblA6NbvQlvGSojB5vsC2nJIQQguQJZksEDYXXPYa2SDybvfYPi4u3V39gk2n9A==
 
-"@xchainjs/xchain-crypto@^0.2.3":
-  version "0.2.3"
-  resolved "https://registry.yarnpkg.com/@xchainjs/xchain-crypto/-/xchain-crypto-0.2.3.tgz#aa29d28cc41ec689d86e209ebf7ff4f644ac8e26"
-  integrity sha512-zKUDQJbbkRFVYsO91GIMfNIZMpNWpFjUTw0WJ5XGbLLJhJxrr2BH5dISsd8F/IfoNio9V1LdjuZyPh2pqNfzKg==
+"@xchainjs/xchain-crypto@^0.2.4":
+  version "0.2.4"
+  resolved "https://registry.yarnpkg.com/@xchainjs/xchain-crypto/-/xchain-crypto-0.2.4.tgz#c5fd6843c06b9eadad404f01c76a62c4f02424cd"
+  integrity sha512-Kems9m2xx6w8LT1UF7ofH1B3xTb3i2f+NJ8hiX5xJK6nuGk9I40k/1i9rZjeZn8yFqOj67MZHvMAOCtRE3tiQw==
   dependencies:
     bech32 "^1.1.4"
     bip39 "^3.0.2"
@@ -29,10 +29,10 @@
     hdkey "^2.0.1"
     uuid "^8.1.0"
 
-"@xchainjs/xchain-util@^0.2.7":
-  version "0.2.7"
-  resolved "https://registry.yarnpkg.com/@xchainjs/xchain-util/-/xchain-util-0.2.7.tgz#3bbbf46e354236c611f0cba6bab50e2eac4621b0"
-  integrity sha512-rWcCALk0d0SzbNtbNBI7k2vSM6NwGG+xzD7BOSQ2linQ9cnC5QtbwdVByTThxz2wR/MgPh6FSa5b3YajBm/G+w==
+"@xchainjs/xchain-util@^0.2.8":
+  version "0.2.8"
+  resolved "https://registry.yarnpkg.com/@xchainjs/xchain-util/-/xchain-util-0.2.8.tgz#f83c49a6dbcf95bf6a9ffda89f8c13ce8c3214fd"
+  integrity sha512-noaf89yfcFlTG+07u1jA07i6V76XHhwGuyiFnTuuTQUsoQ0B1PTbvEd5OOYosoLeUzFCtPGVS3l/SCSTVG5zpg==
 
 axios@^0.19.2:
   version "0.19.2"
@@ -349,9 +349,9 @@ nan@^2.13.2:
   integrity sha512-M2ufzIiINKCuDfBSAUr1vWQ+vuVcA9kqx8JJUsbQi6yf1uGRyb7HfpdfUr5qLXf3B/t8dPvcjhKMmlfnP47EzQ==
 
 nock@^13.0.5:
-  version "13.0.11"
-  resolved "https://registry.yarnpkg.com/nock/-/nock-13.0.11.tgz#ba733252e720897ca50033205c39db0c7470f331"
-  integrity sha512-sKZltNkkWblkqqPAsjYW0bm3s9DcHRPiMOyKO/PkfJ+ANHZ2+LA2PLe22r4lLrKgXaiSaDQwW3qGsJFtIpQIeQ==
+  version "13.1.0"
+  resolved "https://registry.yarnpkg.com/nock/-/nock-13.1.0.tgz#41c8ce8b35ab7d618c4cbf40de1d5bce319979ba"
+  integrity sha512-3N3DUY8XYrxxzWazQ+nSBpiaJ3q6gcpNh4gXovC/QBxrsvNp4tq+wsLHF6mJ3nrn3lPLn7KCJqKxy/9aD+0fdw==
   dependencies:
     debug "^4.1.0"
     json-stringify-safe "^5.0.1"

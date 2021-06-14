@@ -7,11 +7,12 @@ export declare class CosmosSDKClient {
     server: string;
     chainId: string;
     prefix: string;
-    derive_path: string;
-    constructor({ server, chainId, prefix, derive_path }: CosmosSDKClientParams);
+    constructor({ server, chainId, prefix }: CosmosSDKClientParams);
+    updatePrefix: (prefix: string) => void;
     setPrefix: () => void;
     getAddressFromPrivKey: (privkey: PrivKey) => string;
-    getPrivKeyFromMnemonic: (mnemonic: string) => PrivKey;
+    getAddressFromMnemonic: (mnemonic: string, derivationPath: string) => string;
+    getPrivKeyFromMnemonic: (mnemonic: string, derivationPath: string) => PrivKey;
     checkAddress: (address: string) => boolean;
     getBalance: (address: string) => Promise<Coin[]>;
     searchTx: ({ messageAction, messageSender, page, limit, txMinHeight, txMaxHeight, }: SearchTxParams) => Promise<TxHistoryResponse>;

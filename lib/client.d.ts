@@ -1,5 +1,6 @@
 import { Address, Balances, Fees, Network, Tx, TxParams, TxHash, TxHistoryParams, TxsPage, XChainClient, XChainClientParams } from '@xchainjs/xchain-client';
 import { Asset } from '@xchainjs/xchain-util';
+import { CosmosSDKClient } from './cosmos/sdk-client';
 /**
  * Interface for custom Cosmos client
  */
@@ -11,10 +12,9 @@ export interface CosmosClient {
  */
 declare class Client implements CosmosClient, XChainClient {
     private network;
-    private sdkClient;
     private phrase;
-    private address;
-    private privateKey;
+    private rootDerivationPaths;
+    private sdkClients;
     /**
      * Constructor
      *
@@ -25,7 +25,7 @@ declare class Client implements CosmosClient, XChainClient {
      *
      * @throws {"Invalid phrase"} Thrown if the given phase is invalid.
      */
-    constructor({ network, phrase }: XChainClientParams);
+    constructor({ network, phrase, rootDerivationPaths, }: XChainClientParams);
     /**
      * Purge client.
      *
@@ -41,7 +41,7 @@ declare class Client implements CosmosClient, XChainClient {
      * @throws {"Network must be provided"}
      * Thrown if network has not been set before.
      */
-    setNetwork: (network: Network) => XChainClient;
+    setNetwork: (network: Network) => void;
     /**
      * Get the current network.
      *
@@ -96,7 +96,7 @@ declare class Client implements CosmosClient, XChainClient {
      * @throws {"Invalid phrase"}
      * Thrown if the given phase is invalid.
      */
-    setPhrase: (phrase: string) => Address;
+    setPhrase: (phrase: string, walletIndex?: number) => Address;
     /**
      * @private
      * Get private key.
@@ -107,6 +107,14 @@ declare class Client implements CosmosClient, XChainClient {
      * Throws an error if phrase has not been set before
      * */
     private getPrivateKey;
+    getSDKClient: () => CosmosSDKClient;
+    /**
+     * Get getFullDerivationPath
+     *
+     * @param {number} index the HD wallet index
+     * @returns {string} The bitcoin derivation path based on the network.
+     */
+    getFullDerivationPath(index: number): string;
     /**
      * Get the current address.
      *
@@ -114,7 +122,7 @@ declare class Client implements CosmosClient, XChainClient {
      *
      * @throws {Error} Thrown if phrase has not been set before. A phrase is needed to create a wallet and to derive an address from it.
      */
-    getAddress: () => string;
+    getAddress: (index?: number) => string;
     /**
      * Validate the given address.
      *
@@ -135,7 +143,7 @@ declare class Client implements CosmosClient, XChainClient {
      * @param {Asset} asset If not set, it will return all assets available. (optional)
      * @returns {Array<Balance>} The balance of the address.
      */
-    getBalance: (address?: string | undefined, assets?: Asset[] | undefined) => Promise<Balances>;
+    getBalance: (address: Address, assets?: Asset[] | undefined) => Promise<Balances>;
     /**
      * Get transaction history of a given address with pagination options.
      * By default it will return the transaction history of the current wallet.
@@ -157,7 +165,7 @@ declare class Client implements CosmosClient, XChainClient {
      * @param {TxParams} params The transfer options.
      * @returns {TxHash} The transaction hash.
      */
-    transfer: ({ asset, amount, recipient, memo }: TxParams) => Promise<TxHash>;
+    transfer: ({ walletIndex, asset, amount, recipient, memo }: TxParams) => Promise<TxHash>;
     /**
      * Get the current fee.
      *
